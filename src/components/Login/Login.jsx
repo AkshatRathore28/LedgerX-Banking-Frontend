@@ -1,4 +1,5 @@
-import { useState } from "react";
+
+import React, { useState } from "react";
 import LoginPageImg from "../../assets/LoginAssets/LoginPageImg.png";
 import "remixicon/fonts/remixicon.css";
 
@@ -6,196 +7,178 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#f4f7fc] flex items-center justify-center p-6">
+    <div className="h-dvh w-full overflow-hidden bg-[#f4f7fc] flex items-center justify-center p-3 sm:p-5">
 
       {/* Main Login Card */}
-      <div className="w-full max-w-[1200px] min-h-[700px] bg-white rounded-3xl overflow-hidden shadow-[0_15px_50px_rgba(0,0,0,0.08)] flex flex-col lg:flex-row">
+      <div className="w-full max-w-[1150px] h-full max-h-[760px] min-h-0 bg-white rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_15px_50px_rgba(0,0,0,0.08)] flex flex-col lg:flex-row">
 
-        {/* ================= LEFT IMAGE ================= */}
-        <div className="w-full lg:w-[48%] h-[300px] lg:h-auto">
+        {/* LEFT IMAGE */}
+        <div className="relative w-full h-[125px] sm:h-[180px] lg:h-full lg:w-[46%] shrink-0 overflow-hidden">
+
           <img
             src={LoginPageImg}
             alt="LedgerX Bank"
-            className="w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full  object-center"
           />
+
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#081d42]/90 via-[#102752]/20 to-transparent" />
         </div>
 
+        {/* RIGHT LOGIN SECTION */}
+        <div className="flex-1 min-h-0 w-full lg:w-[54%] flex items-center justify-center px-5 py-4 sm:px-10 sm:py-6 lg:px-12 xl:px-16">
 
-        {/* ================= RIGHT LOGIN ================= */}
-        <div className="w-full lg:w-[52%] px-8 py-10 sm:px-12 lg:px-16 xl:px-20 flex items-center">
-
-          <div className="w-full max-w-[520px] mx-auto">
+          <div className="w-full max-w-[440px]">
 
             {/* Heading */}
-            <div className="mb-10">
-              <h1 className="text-4xl sm:text-5xl font-bold text-[#102752] tracking-tight">
-                Welcome Back
+            <div className="mb-5 sm:mb-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-semibold mb-3">
+                <i className="ri-shield-check-line"></i>
+                Secure Banking Login
+              </div>
+
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#102752] tracking-tight">
+                Welcome Back!
               </h1>
 
-              <p className="mt-3 text-base sm:text-lg text-gray-500">
-                Sign in to your LedgerX account
+              <p className="text-gray-500 mt-2 text-sm">
+                Sign in to continue to your LedgerX account.
               </p>
             </div>
 
+            {/* Form */}
+            <form className="space-y-4">
 
-            {/* ================= FORM ================= */}
-            <form>
-
-              {/* Email / Mobile */}
-              <div className="mb-6">
-
-                <label className="block text-base font-semibold text-[#263b60] mb-2">
+              {/* Email */}
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-1.5">
                   Email or Mobile Number
                 </label>
 
-                <div className="relative">
-                  <i className="ri-mail-line absolute left-4 top-1/2 -translate-y-1/2 text-xl text-gray-400" />
+                <div className="relative group">
+                  <i className="ri-user-line absolute left-4 top-1/2 -translate-y-1/2 text-xl text-gray-400 group-focus-within:text-blue-600"></i>
 
                   <input
                     type="text"
-                    placeholder="Enter your email or mobile number"
-                    className="w-full h-14 pl-12 pr-4 rounded-xl border border-gray-200 bg-[#fafcff] text-base text-gray-700 outline-none transition-all duration-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 placeholder:text-gray-400"
+                    placeholder="Enter email or mobile number"
+                    className="w-full h-12 pl-12 pr-4 rounded-xl border border-gray-200 bg-[#f9fbff] text-sm outline-none transition focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-50"
                   />
                 </div>
-
               </div>
 
-
               {/* Password */}
-              <div className="mb-5">
-
-                <label className="block text-base font-semibold text-[#263b60] mb-2">
+              <div>
+                <label className="block text-sm font-semibold text-slate-700 mb-1.5">
                   Password
                 </label>
 
-                <div className="relative">
-
-                  <i className="ri-lock-line absolute left-4 top-1/2 -translate-y-1/2 text-xl text-gray-400" />
+                <div className="relative group">
+                  <i className="ri-lock-line absolute left-4 top-1/2 -translate-y-1/2 text-xl text-gray-400 group-focus-within:text-blue-600"></i>
 
                   <input
                     type={showPassword ? "text" : "password"}
                     placeholder="Enter your password"
-                    className="w-full h-14 pl-12 pr-12 rounded-xl border border-gray-200 bg-[#fafcff] text-base text-gray-700 outline-none transition-all duration-200 focus:border-blue-500 focus:ring-4 focus:ring-blue-100 placeholder:text-gray-400"
+                    className="w-full h-12 pl-12 pr-12 rounded-xl border border-gray-200 bg-[#f9fbff] text-sm outline-none transition focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-50"
                   />
 
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 text-xl text-gray-400 hover:text-blue-600 transition-colors"
+                    className="absolute right-4 top-1/2 -translate-y-1/2 text-xl text-gray-400 hover:text-blue-600"
                   >
-                    <i
-                      className={
-                        showPassword
-                          ? "ri-eye-off-line"
-                          : "ri-eye-line"
-                      }
-                    />
+                    <i className={showPassword ? "ri-eye-off-line" : "ri-eye-line"} />
                   </button>
-
                 </div>
-
               </div>
 
-
-              {/* Remember + Forgot Password */}
-              <div className="flex items-center justify-between mb-8">
+              {/* Remember + Forgot */}
+              <div className="flex items-center justify-between gap-2">
 
                 <label className="flex items-center gap-2 cursor-pointer">
-
                   <input
                     type="checkbox"
-                    className="w-4 h-4 accent-blue-600 cursor-pointer"
+                    className="w-4 h-4 accent-blue-600"
                   />
 
-                  <span className="text-sm text-gray-500">
+                  <span className="text-xs sm:text-sm text-gray-500">
                     Remember me
                   </span>
-
                 </label>
 
                 <button
                   type="button"
-                  className="text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors"
+                  className="text-xs sm:text-sm font-semibold text-blue-600 hover:text-blue-700"
                 >
                   Forgot Password?
                 </button>
-
               </div>
 
-
-              {/* Login Button */}
+              {/* Sign In */}
               <button
                 type="submit"
-                className="w-full h-14 rounded-xl bg-blue-600 hover:bg-blue-700 active:scale-[0.99] text-white text-lg font-semibold shadow-lg shadow-blue-200 transition-all duration-200"
+                className="w-full h-12 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-base font-semibold shadow-lg shadow-blue-200 transition flex items-center justify-center gap-2"
               >
                 Sign In
+                <i className="ri-arrow-right-line"></i>
               </button>
 
-
               {/* Divider */}
-              <div className="flex items-center gap-4 my-8">
-
-                <div className="flex-1 h-px bg-gray-200" />
-
-                <span className="text-sm text-gray-400">
-                  Or continue with
+              <div className="flex items-center gap-3 py-1">
+                <div className="flex-1 h-px bg-gray-200"></div>
+                <span className="text-[11px] text-gray-400 font-medium whitespace-nowrap">
+                  OR CONTINUE WITH
                 </span>
-
-                <div className="flex-1 h-px bg-gray-200" />
-
+                <div className="flex-1 h-px bg-gray-200"></div>
               </div>
 
-
               {/* Social Login */}
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-3">
 
                 <button
                   type="button"
-                  className="h-12 rounded-xl border border-gray-200 hover:bg-gray-50 flex items-center justify-center gap-3 transition"
+                  className="h-11 rounded-xl border border-gray-200 hover:bg-gray-50 flex items-center justify-center gap-2 transition"
                 >
-                  <i className="ri-google-fill text-xl text-[#4285F4]" />
-
-                  <span className="text-sm font-medium text-gray-600">
+                  <i className="ri-google-fill text-xl text-[#4285F4]"></i>
+                  <span className="text-sm font-semibold text-slate-600">
                     Google
                   </span>
                 </button>
 
-
                 <button
                   type="button"
-                  className="h-12 rounded-xl border border-gray-200 hover:bg-gray-50 flex items-center justify-center gap-3 transition"
+                  className="h-11 rounded-xl border border-gray-200 hover:bg-gray-50 flex items-center justify-center gap-2 transition"
                 >
-                  <i className="ri-microsoft-fill text-xl text-[#0078D4]" />
-
-                  <span className="text-sm font-medium text-gray-600">
+                  <i className="ri-microsoft-fill text-xl text-[#0078D4]"></i>
+                  <span className="text-sm font-semibold text-slate-600">
                     Microsoft
                   </span>
                 </button>
 
               </div>
 
-
               {/* Sign Up */}
-              <p className="text-center text-sm text-gray-500 mt-8">
-
+              <p className="text-center text-xs sm:text-sm text-gray-500 pt-1">
                 Don't have an account?
 
                 <button
                   type="button"
-                  className="ml-2 font-semibold text-blue-600 hover:text-blue-700"
+                  className="ml-1.5 font-bold text-blue-600 hover:text-blue-700"
                 >
-                  Sign Up
+                  Create Account
                 </button>
-
               </p>
 
-            </form>
+              {/* Footer */}
+              <div className="flex items-center justify-center gap-2 text-[10px] sm:text-xs text-gray-400 pt-1">
+                <i className="ri-shield-check-line text-emerald-500 text-base"></i>
+                Your information is protected with secure encryption.
+              </div>
 
+            </form>
           </div>
         </div>
-
       </div>
-    </div>
+    </div >
   );
 };
 

@@ -1,26 +1,50 @@
-import React from 'react'
-import SideBar from '../SideBar/SideBar'
-import Navbar from "../Navbar/Navbar"
-import VisaCard from './VisaCard'
+
+import React from "react";
+import SideBar from "../SideBar/SideBar";
+import Navbar from "../Navbar/Navbar";
+import VisaCard from "./VisaCard";
+
 const CardsPageLayout = () => {
      return (
           <div
-               id="DashboardContainer"
-               className="flex h-screen w-full overflow-hidden"
+               id="CardsPageContainer"
+               className="flex min-h-screen w-full bg-gray-50"
           >
-
-               <div id="SideBar" className=" w-1/6 h-full shrink-0 shadow-xl">
-
+               {/* Sidebar */}
+               <aside className="hidden lg:block w-64 shrink-0 sticky top-0 h-screen">
                     <SideBar />
-               </div>
-               <div className=" w-full min-w-0 rounded-xl my-2 mx-5 border-2 border-gray-200 shadow-lg  flex flex-col p-2 gap-3">
-                    <h1 className=' font-bold text-2xl py-3 w-full'>My Cards</h1>
-                    <div className='h-[50%]'>
-                         <VisaCard />
-                    </div>
+               </aside>
+
+               {/* Main Content */}
+               <div className="flex-1 min-w-0 flex flex-col">
+
+                    {/* Navbar */}
+                    <header className="h-20 shrink-0 bg-white border-b border-gray-100 shadow-sm flex items-center px-3 sm:px-5">
+                         <Navbar />
+                    </header>
+
+                    {/* Cards Content */}
+                    <main className="flex-1 min-w-0 p-4 sm:p-6 lg:p-8">
+                         <section className="bg-white border border-gray-100 rounded-2xl shadow-sm p-4 sm:p-6 lg:p-8">
+
+                              <div className="mb-6">
+                                   <h2 className="text-2xl font-bold text-gray-800">
+                                        Your Debit Card
+                                   </h2>
+
+                                   <p className="text-sm text-gray-400 mt-1">
+                                        View and manage your banking card.
+                                   </p>
+                              </div>
+
+                              <VisaCard />
+
+                         </section>
+
+                    </main>
                </div>
           </div>
-     )
-}
+     );
+};
 
-export default CardsPageLayout
+export default CardsPageLayout;

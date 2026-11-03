@@ -1,54 +1,114 @@
-import React from 'react'
-import SideBar from '../SideBar/SideBar'
-import Navbar from '../Navbar/Navbar'
+
+import React from "react";
+import SideBar from "../SideBar/SideBar";
+import Navbar from "../Navbar/Navbar";
 
 const AccountsLayout = () => {
      return (
           <div
-               id="DashboardContainer"
-               className="flex h-screen w-full overflow-hidden"
+               id="AccountsContainer"
+               className="flex min-h-screen w-full bg-gray-50"
           >
-
-               <div id="SideBar" className="bg-green-300 w-1/6 h-full shrink-0 shadow-xl">
-
+               {/* Sidebar */}
+               <aside
+                    id="SideBar"
+                    className="hidden lg:block w-1/6 min-w-56 shrink-0 h-screen sticky top-0"
+               >
                     <SideBar />
-               </div>
-               <div className=" w-full min-w-0 h-full flex flex-col">
+               </aside>
 
-                    <div className="bg-white h-[10%] shrink-0 py-5 items-center border-2 border-gray-100 shadow-lg"> <Navbar /> </div>
+               {/* Main Container */}
+               <div className="flex-1 min-w-0 flex flex-col">
 
-                    <div id="MainContent" className="flex flex-1 flex-col min-h-0 min-w-0 gap-3 bg-red-300 p-3">
-                         {/* Main Container cotain 4 section  */}
+                    {/* Navbar */}
+                    <header className="h-20 shrink-0 bg-white border-b border-gray-100 shadow-sm flex items-center px-3 sm:px-5">
+                         <Navbar />
+                    </header>
 
-                         {/* Heading Section*/}
-                         <h1 className='bg-green-200 h-[5%] text-2xl font-bold'>My Accounts</h1>
+                    {/* Main Content */}
+                    <main
+                         id="MainContent"
+                         className="flex-1 min-w-0 flex flex-col gap-5 p-4 sm:p-5 lg:p-6"
+                    >
 
-                         {/* Accounts Types */}
-                         <div id="accountsTypeContainer" className='bg-yellow-300 flex justify-evenly items-center h-full p-4 gap-10 rounded-xl shadow-lg'>
-                              <div id="savingAccount" className='h-full w-1/3 bg-purple-300 rounded-xl border border-gray-300'>
-                                   Saving Account
+                         {/* Heading Section */}
+                         <section>
+                              <h1 className="text-xl sm:text-2xl font-bold text-gray-800">
+                                   My Accounts
+                              </h1>
+                              <p className="text-sm text-gray-500 mt-1">
+                                   Manage and monitor your banking accounts.
+                              </p>
+                         </section>
+
+                         {/* Account Types */}
+                         <section
+                              id="accountsTypeContainer"
+                              className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6"
+                         >
+
+                              {/* Saving Account */}
+                              <div
+                                   id="savingAccount"
+                                   className="min-h-48 sm:min-h-52 rounded-2xl bg-white border border-gray-100 shadow-sm p-5 sm:p-6"
+                              >
+                                   <h2 className="text-lg font-semibold text-gray-800">
+                                        Saving Account
+                                   </h2>
+
+                                   {/* Saving Account Details */}
                               </div>
-                              <div id="currentAccount" className='h-full w-1/3 rounded-xl bg-blue-400 border border-gray-300'>
-                                   Current Account
-                              </div>
-                         </div>
 
-                         {/* Account Information Section */}
-                         <div className='bg-white  h-full rounded-xl shadow-lg'>
-                              <h1 className='text-xl font-bold py-1 border-b border-gray-100 shadow-sm'>Account Information</h1>
-                              <div id='accountInfos'>
+                              {/* Current Account */}
+                              <div
+                                   id="currentAccount"
+                                   className="min-h-48 sm:min-h-52 rounded-2xl bg-white border border-gray-100 shadow-sm p-5 sm:p-6"
+                              >
+                                   <h2 className="text-lg font-semibold text-gray-800">
+                                        Current Account
+                                   </h2>
 
+                                   {/* Current Account Details */}
                               </div>
-                         </div>
+
+                         </section>
+
+                         {/* Account Information */}
+                         <section
+                              id="accountInformation"
+                              className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden"
+                         >
+                              <div className="px-4 sm:px-6 py-4 border-b border-gray-100">
+                                   <h2 className="text-lg font-bold text-gray-800">
+                                        Account Information
+                                   </h2>
+                              </div>
+
+                              <div id="accountInfos" className="p-4 sm:p-6">
+                                   {/* Account Information Details */}
+                              </div>
+                         </section>
 
                          {/* Recent Transactions */}
-                         <div className='bg-blue-200 h-full rounded-xl shadow-lg'>
-                              <h1>Recent Transaction</h1>
-                         </div>
-                    </div>
+                         <section
+                              id="recentTransactions"
+                              className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden"
+                         >
+                              <div className="px-4 sm:px-6 py-4 border-b border-gray-100">
+                                   <h2 className="text-lg font-bold text-gray-800">
+                                        Recent Transactions
+                                   </h2>
+                              </div>
+
+                              <div className="p-4 sm:p-6">
+                                   {/* Recent Transactions Details */}
+                              </div>
+                         </section>
+
+                    </main>
                </div>
           </div>
-     )
-}
+     );
+};
 
-export default AccountsLayout
+export default AccountsLayout;
